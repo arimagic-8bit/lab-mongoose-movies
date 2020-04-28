@@ -46,7 +46,7 @@ celebritiesRouter.post("/:id", (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body;
   const celebrityId = req.params.id;
 
-  Celebrity.update(celebrityId, { name, occupation, catchPhrase })
+  Celebrity.update({_id: celebrityId}, { name, occupation, catchPhrase })
     .then((updatedCeleb) => {
       console.log("HERE", updatedCeleb);
       res.redirect("/celebrities");
